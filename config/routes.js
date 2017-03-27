@@ -34,7 +34,10 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+    'post /signin': 'AuthController.authLogin',
+    "get /me" : 'AuthController.me',
+    "get /logout" : "AuthController.logout"
 
   /***************************************************************************
   *                                                                          *
