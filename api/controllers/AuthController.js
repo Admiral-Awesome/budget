@@ -8,12 +8,7 @@ var firebase = require('firebase');
 var FIREBASE = require("../../config/env/development.js");
 var app = firebase.initializeApp(FIREBASE.FIREBASE);
 var db = app.database();
-// var admin = require("firebase-admin");
-// admin.initializeApp({
-//     credential: admin.credential.cert(FIREBASE.FIREBASE),
-//       databaseURL: FIREBASE.FIREBASE.databaseURL
-// });
-// var db = admin.database();
+
 module.exports = {
     authLogin : function(req, res) {
         if( !req.body.email || !req.body.pass ) {

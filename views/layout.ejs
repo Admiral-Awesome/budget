@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="todoApp">
+<html ng-app="app">
 <head>
-  <title>Angular Todo Application</title>
+  <title>Budget admin</title>
 
   <!-- Viewport mobile tag for sensible mobile support -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,6 +11,21 @@
   <!--STYLES END-->
 </head>
 <body>
+<nav class="navbar navbar-default" ng-controller="menuCtrl">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/#/">Budget</a>
+    </div>
+    <ul class="nav navbar-nav" >
+      <li ng-show="isAuthorized()"><a href="#">Main</a></li>
+      <li ng-show="isAuthorized()"><a href="#">Statistic</a></li>
+      <li ng-show="isAuthorized()" ng-click="logout()"><a href="#">Log Out</a></li>
+      <li ng-show="!isAuthorized()"><a href="#">Log in </a></li>
+      <li ng-show="isAuthorized()"><a> Hi, {{status.email}}</a></li>
+      
+    </ul>
+  </div>
+</nav>
  <div ng-view></div>
  <script type="text/javascript" src="/jst.js"></script>
 
@@ -21,6 +36,8 @@
  <script src="/bower_components/angular-route/angular-route.js"></script>
  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
  <script src="/js/app.js"></script>
+ <script src="/js/controllers/MenuCtrl.js"></script>
+ <script src="/js/services/AuthService.js"></script>
  <script src="/js/services/TodoService.js"></script>
  <!--SCRIPTS END-->
 </body>
